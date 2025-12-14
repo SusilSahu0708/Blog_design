@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index-route</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <h1 class="heading">Blog Page</h1>
+    
+    <% for(let post of posts) { %>
+        <div class="post">
+            <h4 class="id">Id : <%= post.id %></h4>
+            <h2 class="username">Username : <%= post.name %></h2>
+            <h3 class="content">Content : <%= post.content %></h3>
+            <p class="det">
+                <a href="/posts/<%= post.id %>" class="detail">See post Detail</a>
+            </p>
+            <p class="ud-op">
+                <a href="/posts/<%= post.id %>/edit" class="edit">Edit Post</a>
+                <form action="/posts/<%= post.id %>?_method=Delete" method="post">
+                    <button class="delete">Delete Post</button>
+                </form>
+            </p>
+        </div>
+    <% } %>
+    <a href="/posts/new" class="add">Add Post</a>
+</body>
+</html>
